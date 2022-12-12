@@ -2,22 +2,29 @@ defmodule EscaperoomWeb.Router do
   use EscaperoomWeb, :router
 
   pipeline :browser do
-    plug :accepts, ["html"]
-    plug :fetch_session
-    plug :fetch_live_flash
-    plug :put_root_layout, {EscaperoomWeb.LayoutView, :root}
-    plug :protect_from_forgery
-    plug :put_secure_browser_headers
+    plug(:accepts, ["html"])
+    plug(:fetch_session)
+    plug(:fetch_live_flash)
+    plug(:put_root_layout, {EscaperoomWeb.LayoutView, :root})
+    plug(:protect_from_forgery)
+    plug(:put_secure_browser_headers)
   end
 
   pipeline :api do
-    plug :accepts, ["json"]
+    plug(:accepts, ["json"])
   end
 
   scope "/", EscaperoomWeb do
-    pipe_through :browser
+    pipe_through(:browser)
 
-    get "/", PageController, :index
+    get("/", PageController, :index)
+
+    live("/items", ItemLive.Index, :index)
+    live("/items/new", ItemLive.Index, :new)
+    live("/items/:id/edit", ItemLive.Index, :edit)
+
+    live("/items/:id", ItemLive.Show, :show)
+    live("/items/:id/show/edit", ItemLive.Show, :edit)
   end
 
   # Other scopes may use custom stacks.
@@ -36,9 +43,9 @@ defmodule EscaperoomWeb.Router do
     import Phoenix.LiveDashboard.Router
 
     scope "/" do
-      pipe_through :browser
+      pipe_through(:browser)
 
-      live_dashboard "/dashboard", metrics: EscaperoomWeb.Telemetry
+      live_dashboard("/dashboard", metrics: EscaperoomWeb.Telemetry)
     end
   end
 
@@ -48,9 +55,9 @@ defmodule EscaperoomWeb.Router do
   # node running the Phoenix server.
   if Mix.env() == :dev do
     scope "/dev" do
-      pipe_through :browser
+      pipe_through(:browser)
 
-      forward "/mailbox", Plug.Swoosh.MailboxPreview
+      forward("/mailbox", Plug.Swoosh.MailboxPreview)
     end
   end
 end
