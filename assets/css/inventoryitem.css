@@ -11,7 +11,11 @@
 
 .gameBody {
   height: 80%;
-  background-color: brown
+  color: #ff9e7d;
+  /*background-color: brown*/
+  background-image: linear-gradient(#02578E, #352a55);
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 .invBody {
@@ -41,12 +45,13 @@
   height: 80%;
 }
 
-.column.right {
+.column.left {
   width: 20%;
   background-color: aqua;
 }
 
-.column.left {
+.column.right {
   width: 80%;
   background-color: blue;
 }
+

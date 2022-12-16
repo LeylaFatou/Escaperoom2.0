@@ -18,12 +18,15 @@ html {
 }
 
 body {
-  color: #000000;
+  color: #ff9e7d;
   font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
   font-size: 1.6em;
   font-weight: 300;
   letter-spacing: .01em;
-  line-height: 1.6
+  line-height: 1.6;
+  background-image: linear-gradient(#352a55 20%, #02578E );
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 blockquote {
@@ -37,12 +40,12 @@ blockquote *:last-child {
   margin-bottom: 0
 }
 
+
 .button,
 button,
 input[type='button'],
 input[type='reset'],
 input[type='submit'] {
-  background-color: #0069d9;
   border: 0.1rem solid #0069d9;
   border-radius: .4rem;
   color: #fff;
@@ -59,6 +62,7 @@ input[type='submit'] {
   text-transform: uppercase;
   white-space: nowrap
 }
+
 
 .button:focus,
 .button:hover,
@@ -174,6 +178,7 @@ input[type='submit'].button-clear[disabled]:focus,
 input[type='submit'].button-clear[disabled]:hover {
   color: #0069d9
 }
+
 
 code {
   background: #f4f5f6;
@@ -297,14 +302,15 @@ input[type='radio'] {
   max-width: 112.0rem;
   padding: 0 2.0rem;
   position: relative;
-  width: 100%
+  width: 100%;
 }
 
 .row {
   display: flex;
   flex-direction: column;
   padding: 0;
-  width: 100%
+  width: 100%;
+  height: 400px
 }
 
 .row.row-no-padding {
@@ -344,7 +350,7 @@ input[type='radio'] {
   flex: 1 1 auto;
   margin-left: 0;
   max-width: 100%;
-  width: 100%
+  width: 100%;
 }
 
 .row .column.column-offset-10 {
@@ -726,8 +732,6 @@ select {
 /* Headers */
 header {
   width: 100%;
-  background: #fdfdfd;
-  border-bottom: 1px solid #eaeaea;
   margin-bottom: 2rem;
 }
 
@@ -779,4 +783,118 @@ header nav a {
     flex-basis: 527px;
     margin: 2rem 1rem;
   }
+}
+
+.row .column.column-80.gamebody { 
+  position: relative;
+  color: #ff9e7d;
+  /*background-color: brown*/
+  background-image: linear-gradient(#02578E, #352a55);
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.furniture {
+  position: absolute;
+}
+
+.buttons:hover {
+  /* find way to delimit odd shape */
+  /*box-shadow: 0 5px 15px rgba(252, 252, 252, 0.4);*/
+  -webkit-filter: drop-shadow(4px 4px #FFF6E6);
+  transform: rotate(3deg);
+  transition: all 0.3s ease-in-out 0s;
+}
+
+.furniture.door {
+  right: 0%;
+  top: 55%;
+  width: 1.7%;
+}
+
+.furniture.desk {
+  right: 15%;
+  width: 25%;
+}
+
+.furniture.key {
+  top: 22% ;
+  right: 25%;
+  width: 3%;
+  rotate: 50deg;
+}
+
+.furniture.pen {
+  top: 19% ;
+  right: 28%;
+  width: 3%;
+  rotate: 70deg;
+}
+
+.furniture.paper {
+  right: 14%;
+  top: 14%;
+  width: 4%;
+  rotate: 17deg;
+}
+
+.furniture.letter {
+  right: 38%;
+  top: 2%;
+  width: 4%;
+  rotate: -15deg
+}
+
+.furniture.chair {
+  right: 21%;
+  top: 18%;
+  width: 14%;
+}
+
+.furniture.laptop {
+  right: 20%;
+  top: 3%;
+  width: 12%;
+}
+
+.furniture.closet {
+  left: 15%;
+  bottom: 0%;
+  width: 35%;
+}
+
+.furniture.sofa {
+  left: 10%;
+  width: 40%;
+}
+
+.furniture.table {
+  left: 7%;
+  top: 30%;
+  width: 20%;
+}
+
+.furniture.chess {
+  left: 18%;
+  top: 41%;
+  width: 4%;
+}
+
+.furniture.sock {
+  left: 7%;
+  top: 9%;
+  width: 6%;
+}
+
+.furniture.undies {
+  left: 15%;
+  top: 34%;
+  width: 5%;
+}
+
+.inventory {
+  position: relative;
+  max-width: 45%;
+  max-height: 45%;
+  rotate: 45deg;
 }
