@@ -6,11 +6,12 @@
     <h3>Inventory</h3>
 
     <div>
-    <input class="inventory" type="image" src="/images/Key.png" id= "inv_key" hidden="hidden"/>
+   <!-- <input class="inventory" type="image" src="/images/Key.png" id= "inv_key" hidden="hidden"/> -->
+      <.live_component module={Escaperoom.Inventory.InventoryKeyComponent} id="key_comp" />
     </div>
 
     <div>
-    <input class="inventory" type="image" src="/images/Letter open.png" />
+      <input class="inventory" type="image" src="/images/Letter open.png" />
     </div>
 
   </div>
@@ -28,7 +29,7 @@
     <input class="buttons furniture paper" type="image" src="/images/Newspaper.png" /> <!-- show big and in inventory -->
     <input class="buttons furniture letter" type="image" src="/images/Letter.png" /> <!-- show big/open version and in closed version in inventory -->
     <input class="buttons furniture desk" type="image" src="/images/Desk.png" id="desk" onclick="openDesk();" /> <!-- replace with open desk picture at click and add key + pencil inside-->
-    <input class="buttons furniture key" type="image" src="/images/Key.png" id= "key" onclick="get(id, 'inv_key');" hidden="hidden" />
+    <.live_component module={Escaperoom.Inventory.GameKeyComponent} id="key" />
     <input class="buttons furniture pen" type="image" src="/images/Pen.png" id= "pen" onclick="get(id);" hidden="hidden" />
 
     <script>
