@@ -1,11 +1,12 @@
 defmodule EscaperoomWeb.ItemLive.Index do
   use EscaperoomWeb, :live_view
 
-  alias Escaperoom.Inventory
-  alias Escaperoom.Inventory.Item
+  alias Escaperoom.Inventory_component
 
   @impl true
   def mount(_params, _session, socket) do
+    # if connected?(socket), do: Inventory_component.subscribe()
+
     {:ok, assign(socket, :items, list_items())}
   end
 
@@ -17,13 +18,12 @@ defmodule EscaperoomWeb.ItemLive.Index do
   defp apply_action(socket, :edit, %{"id" => id}) do
     socket
     |> assign(:page_title, "Edit Item")
-    |> assign(:item, Inventory.get_item!(id))
+    |> assign(:item, Inventory_component.get_item!(id))
   end
 
   defp apply_action(socket, :new, _params) do
     socket
-    |> assign(:page_title, "New Item")
-    |> assign(:item, %Item{})
+    :ok
   end
 
   defp apply_action(socket, :index, _params) do
@@ -34,13 +34,13 @@ defmodule EscaperoomWeb.ItemLive.Index do
 
   @impl true
   def handle_event("delete", %{"id" => id}, socket) do
-    item = Inventory.get_item!(id)
-    {:ok, _} = Inventory.delete_item(item)
+    item = Inventory_component.get_item!(id)
+    {:ok, _} = Inventory_component.delete_item(item)
 
     {:noreply, assign(socket, :items, list_items())}
   end
 
   defp list_items do
-    Inventory.list_items()
+    Inventory_component.list_items()
   end
 end

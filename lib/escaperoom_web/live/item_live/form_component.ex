@@ -46,7 +46,8 @@ defmodule EscaperoomWeb.ItemLive.FormComponent do
         {:noreply,
          socket
          |> put_flash(:info, "Item created successfully")
-         |> push_redirect(to: socket.assigns.return_to)}
+         #  |> push_redirect(to: socket.assigns.return_to)}
+         |> push_patch(to: socket.assigns.return)}
 
       {:error, %Ecto.Changeset{} = changeset} ->
         {:noreply, assign(socket, changeset: changeset)}
