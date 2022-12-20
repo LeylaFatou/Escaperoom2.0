@@ -6,6 +6,8 @@ defmodule EscaperoomWeb.ItemLive.Index do
 
   @impl true
   def mount(_params, _session, socket) do
+    # if connected?(socket), do: Phoenix.PubSub.subscribe(Chirp.PubSub, "")
+
     {:ok, assign(socket, :items, list_items())}
   end
 

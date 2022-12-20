@@ -1,7 +1,7 @@
 defmodule EscaperoomWeb.ItemLive.Show do
   use EscaperoomWeb, :live_view
 
-  alias Escaperoom.Inventory
+  alias Escaperoom.Inventory_component
 
   @impl true
   def mount(_params, _session, socket) do
@@ -13,7 +13,7 @@ defmodule EscaperoomWeb.ItemLive.Show do
     {:noreply,
      socket
      |> assign(:page_title, page_title(socket.assigns.live_action))
-     |> assign(:item, Inventory.get_item!(id))}
+     |> assign(:item, Inventory_component.get_item!(id))}
   end
 
   defp page_title(:show), do: "Show Item"
