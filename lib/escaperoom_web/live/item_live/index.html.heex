@@ -1,17 +1,32 @@
 
-<section class = "row">
+<section class = "row" onclick="closeOther();">
 
   <div class = "column column-20">
 
     <h3>Inventory</h3>
 
     <div>
-   <!-- <input class="inventory" type="image" src="/images/Key.png" id= "inv_key" hidden="hidden"/> -->
-      <.live_component module={Escaperoom.Inventory.InventoryKeyComponent} id="key_comp" />
+      <.live_component module={Escaperoom.Inventory.InventoryKeyComponent} id="inv_key" />
     </div>
 
     <div>
-      <input class="inventory" type="image" src="/images/Letter open.png" />
+      <.live_component module={Escaperoom.Inventory.InventoryLetterComponent} id="inv_letter" />
+    </div>
+
+    <div>
+      <.live_component module={Escaperoom.Inventory.InventoryPaperComponent} id="inv_paper" />
+    </div>
+
+    <div>
+      <.live_component module={Escaperoom.Inventory.InventorySockComponent} id="inv_sock" />
+    </div>
+
+    <div>
+      <.live_component module={Escaperoom.Inventory.InventoryPenComponent} id="inv_pen" />
+    </div>
+
+    <div>
+      <.live_component module={Escaperoom.Inventory.InventoryUndiesComponent} id="inv_undies" />
     </div>
 
   </div>
@@ -19,19 +34,18 @@
   <div class = "column column-80 gamebody">
     <!-- <span><%= live_patch "Key", to: Routes.item_index_path(@socket, :new) %></span> -->
 
-    <input class="buttons furniture sock" type="image" src="/images/Sock.png" /> <!-- show in inventory -->
-    <input class="buttons furniture undies" type="image" src="/images/Underwear.png" /> <!-- show in inventory -->
+    <.live_component module={Escaperoom.Inventory.GameSockComponent} id="paper" />
+    <.live_component module={Escaperoom.Inventory.GameUndiesComponent} id="undies" />
     <img class = "furniture sofa" src="/images/Sofa.png">
     <img class = "furniture table" src="/images/Table.png">
     <img class = "furniture chess" src="/images/Chessboard.png">
 
     <img class = "furniture chair" src="/images/DeskChair.png" id="chair">
-    <input class="buttons furniture paper" type="image" src="/images/Newspaper.png" /> <!-- show big and in inventory -->
-    <input class="buttons furniture letter" type="image" src="/images/Letter.png" /> <!-- show big/open version and in closed version in inventory -->
+    <.live_component module={Escaperoom.Inventory.GamePaperComponent} id="paper" />
+    <.live_component module={Escaperoom.Inventory.GameLetterComponent} id="letter" />
     <input class="buttons furniture desk" type="image" src="/images/Desk.png" id="desk" onclick="openDesk();" /> <!-- replace with open desk picture at click and add key + pencil inside-->
     <.live_component module={Escaperoom.Inventory.GameKeyComponent} id="key" />
-    <input class="buttons furniture pen" type="image" src="/images/Pen.png" id= "pen" onclick="get(id);" hidden="hidden" />
-
+    <.live_component module={Escaperoom.Inventory.GamePenComponent} id="pen" />
     <script>
       function openDesk() {
         var desk = document.getElementById("desk");
@@ -54,20 +68,39 @@
       }
     </script>
 
-    <input class = "buttons furniture laptop" type="image" src="/images/Computer.png" /> <!-- show open laptop -->
-
-    <input class = "buttons furniture closet" type="image" src="/images/Closet.png"> <!-- show open closet -->
     <input class = "buttons furniture door" type="image" src="/images/Door.png"> <!-- if key==true finish game -->
 
-    <!--
-    <button id="key">Key</button>
+<!-- Laptop -->
+    <input class = "buttons furniture laptop" type="image" src="/images/Computer.png" onclick="showScreen('laptopScreen');"/> <!-- show open laptop -->
+    <div class="window laptop" id="laptopScreen">
+      <span class="close" onclick="closeScreen('laptopScreen');"> &times </span>
+      <img class="laptopOpen" src="/images/LaptopScreen.png">
+    </div>
+
+
+<!-- Closet -->
+    <input class = "buttons furniture closet" type="image" src="/images/Closet.png" onclick="showScreen('closetScreen');"> <!-- show open closet -->
+    <div class="window closet" id="closetScreen">
+      <span class="close" onclick="closeScreen('closetScreen');"> &times </span>
+      <img class="closetOpen" src="/images/ClosetOpen.png">
+      <img class="safe" src="/images/Safe.png">
+      <img class="books" src="/images/Books.png">
+    </div>
+
+
+
     <script>
-    const key = document.getElementById("key");
-    key.addEventListener("click", function key);
-    function key() {
-      document.getElementById("image_key").removeAttribute("hidden");
-    }
-    </script> -->
+      function showScreen(Id) {
+        var modal = document.getElementById(Id);
+        modal.style.display = "block";
+      }
+
+      function closeScreen(Id) {
+        var modal = document.getElementById(Id);
+        modal.style.display = "none";
+      }
+    </script>
+
   </div>
 
 </section>
