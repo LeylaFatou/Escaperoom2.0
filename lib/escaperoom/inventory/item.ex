@@ -3,8 +3,10 @@ defmodule Escaperoom.Inventory.Item do
   import Ecto.Changeset
 
   schema "items" do
-    field :body, :string
-    field :description, :string
+    # type of the component
+    field(:body, :string)
+    # true if the field is found
+    field(:description, :string)
 
     timestamps()
   end

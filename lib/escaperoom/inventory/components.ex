@@ -1,16 +1,27 @@
-#Keys:
+# Keys:
 defmodule Escaperoom.Inventory.GameKeyComponent do
   use Phoenix.LiveComponent
 
-  #must show at desk click
+  # must show at desk click
   def render(assigns) do
     ~H"""
     <input class="buttons furniture key" type="image" src="/images/Key.png" id= "key" onclick="get(id, 'inv_key'); showScreen('zoomKey');" hidden="hidden"/>
     """
   end
 
-end
+  def handle_event("key_found", %{"title" => title}, socket) do
+    send(self(), {:updated_card, %{socket.assigns.card | title: title}})
 
+    # |> create_key()
+
+    {:noreply, socket}
+    |> Phoenix.PubSub.broadcast(
+      Chirp.PubSub,
+      "inventorykeycomponents",
+      {title}
+    )
+  end
+end
 
 defmodule Escaperoom.Inventory.InventoryKeyComponent do
   use Phoenix.LiveComponent
@@ -22,10 +33,9 @@ defmodule Escaperoom.Inventory.InventoryKeyComponent do
     </div>
     """
   end
-
 end
 
-#Letters
+# Letters
 defmodule Escaperoom.Inventory.GameLetterComponent do
   use Phoenix.LiveComponent
 
@@ -34,9 +44,8 @@ defmodule Escaperoom.Inventory.GameLetterComponent do
     <div>
     <input class="buttons furniture letter" type="image" src="/images/Letter.png" id="letter" onclick="get(id, 'inv_letter'); showScreen('zoomLetter');"/> <!-- show big/open version and in closed version in inventory -->
     </div>
-      """
+    """
   end
-
 end
 
 defmodule Escaperoom.Inventory.InventoryLetterComponent do
@@ -49,10 +58,9 @@ defmodule Escaperoom.Inventory.InventoryLetterComponent do
     </div>
     """
   end
-
 end
 
-#Newspapers
+# Newspapers
 defmodule Escaperoom.Inventory.GamePaperComponent do
   use Phoenix.LiveComponent
 
@@ -63,7 +71,6 @@ defmodule Escaperoom.Inventory.GamePaperComponent do
     </div>
     """
   end
-
 end
 
 defmodule Escaperoom.Inventory.InventoryPaperComponent do
@@ -76,10 +83,9 @@ defmodule Escaperoom.Inventory.InventoryPaperComponent do
     </div>
     """
   end
-
 end
 
-#Sock
+# Sock
 defmodule Escaperoom.Inventory.GameSockComponent do
   use Phoenix.LiveComponent
 
@@ -90,7 +96,6 @@ defmodule Escaperoom.Inventory.GameSockComponent do
     </div>
     """
   end
-
 end
 
 defmodule Escaperoom.Inventory.InventorySockComponent do
@@ -103,10 +108,9 @@ defmodule Escaperoom.Inventory.InventorySockComponent do
     </div>
     """
   end
-
 end
 
-#Pen
+# Pen
 defmodule Escaperoom.Inventory.GamePenComponent do
   use Phoenix.LiveComponent
 
@@ -117,7 +121,6 @@ defmodule Escaperoom.Inventory.GamePenComponent do
     </div>
     """
   end
-
 end
 
 defmodule Escaperoom.Inventory.InventoryPenComponent do
@@ -130,10 +133,9 @@ defmodule Escaperoom.Inventory.InventoryPenComponent do
     </div>
     """
   end
-
 end
 
-#Undies
+# Undies
 defmodule Escaperoom.Inventory.GameUndiesComponent do
   use Phoenix.LiveComponent
 
@@ -144,7 +146,6 @@ defmodule Escaperoom.Inventory.GameUndiesComponent do
     </div>
     """
   end
-
 end
 
 defmodule Escaperoom.Inventory.InventoryUndiesComponent do
@@ -157,5 +158,4 @@ defmodule Escaperoom.Inventory.InventoryUndiesComponent do
     </div>
     """
   end
-
 end
