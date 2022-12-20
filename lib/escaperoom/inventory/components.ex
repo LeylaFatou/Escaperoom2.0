@@ -5,7 +5,7 @@ defmodule Escaperoom.Inventory.GameKeyComponent do
   #must show at desk click
   def render(assigns) do
     ~H"""
-    <input class="buttons furniture key" type="image" src="/images/Key.png" id= "key" onclick="get(id, 'inv_key');" hidden="hidden"/>
+    <input class="buttons furniture key" type="image" src="/images/Key.png" id= "key" onclick="get(id, 'inv_key'); showScreen('zoomKey');" hidden="hidden"/>
     """
   end
 
@@ -18,7 +18,7 @@ defmodule Escaperoom.Inventory.InventoryKeyComponent do
   def render(assigns) do
     ~H"""
     <div>
-    <input class="inventory" type="image" src="/images/Key.png" id= "inv_key" hidden="hidden"/>
+    <input class="inventory" type="image" src="/images/Key.png" id= "inv_key" hidden="hidden" onclick="showScreen('zoomKey');"/>
     </div>
     """
   end
@@ -32,7 +32,7 @@ defmodule Escaperoom.Inventory.GameLetterComponent do
   def render(assigns) do
     ~H"""
     <div>
-    <input class="buttons furniture letter" type="image" src="/images/Letter.png" id="letter" onclick="get(id, 'inv_letter');"/> <!-- show big/open version and in closed version in inventory -->
+    <input class="buttons furniture letter" type="image" src="/images/Letter.png" id="letter" onclick="get(id, 'inv_letter'); showScreen('zoomLetter');"/> <!-- show big/open version and in closed version in inventory -->
     </div>
       """
   end
@@ -45,7 +45,7 @@ defmodule Escaperoom.Inventory.InventoryLetterComponent do
   def render(assigns) do
     ~H"""
     <div>
-    <input class="inventory" type="image" src="/images/Letter open.png" id="inv_letter" hidden = "hidden" />
+    <input class="inventory" type="image" src="/images/Letter open.png" id="inv_letter" hidden = "hidden" onclick="showScreen('zoomLetter');"/>
     </div>
     """
   end
@@ -59,7 +59,7 @@ defmodule Escaperoom.Inventory.GamePaperComponent do
   def render(assigns) do
     ~H"""
     <div>
-    <input class="buttons furniture paper" type="image" src="/images/Newspaper.png" id="paper" onclick="get(id, 'inv_paper');"/> <!-- show big and in inventory -->
+    <input class="buttons furniture paper" type="image" src="/images/Newspaper.png" id="paper" onclick="get(id, 'inv_paper'); showScreen('zoomPaper');" /> <!-- show big and in inventory -->
     </div>
     """
   end
@@ -72,7 +72,7 @@ defmodule Escaperoom.Inventory.InventoryPaperComponent do
   def render(assigns) do
     ~H"""
     <div>
-    <input class="inventory" type="image" src="/images/Newspaper.png" id="inv_paper" hidden = "hidden" /> <!-- show big and in inventory -->
+    <input class="inventory" type="image" src="/images/Newspaper.png" id="inv_paper" hidden = "hidden" onclick="showScreen('zoomPaper');" /> <!-- show big and in inventory -->
     </div>
     """
   end
@@ -86,7 +86,7 @@ defmodule Escaperoom.Inventory.GameSockComponent do
   def render(assigns) do
     ~H"""
     <div>
-      <input class="buttons furniture sock" type="image" src="/images/Sock.png" id= "sock" onclick="get(id, 'inv_sock');"/> <!-- show in inventory -->
+      <input class="buttons furniture sock" type="image" src="/images/Sock.png" id= "sock" onclick="get(id, 'inv_sock'); showScreen('zoomSock');"/> <!-- show in inventory -->
     </div>
     """
   end
@@ -99,7 +99,7 @@ defmodule Escaperoom.Inventory.InventorySockComponent do
   def render(assigns) do
     ~H"""
     <div>
-      <input class="inventory" type="image" src="/images/Sock.png" id="inv_sock" hidden = "hidden" /> <!-- show big and in inventory -->
+      <input class="inventory" type="image" src="/images/Sock.png" id="inv_sock" hidden = "hidden" onclick="showScreen('zoomSock');"/> <!-- show big and in inventory -->
     </div>
     """
   end
@@ -113,7 +113,7 @@ defmodule Escaperoom.Inventory.GamePenComponent do
   def render(assigns) do
     ~H"""
     <div>
-      <input class="buttons furniture pen" type="image" src="/images/Pen.png" id= "pen" onclick="get(id, 'inv_pen');" hidden = "hidden" /> <!-- show in inventory -->
+      <input class="buttons furniture pen" type="image" src="/images/Pen.png" id= "pen" onclick="get(id, 'inv_pen'); showScreen('zoomPen');" hidden = "hidden" /> <!-- show in inventory -->
     </div>
     """
   end
@@ -126,7 +126,7 @@ defmodule Escaperoom.Inventory.InventoryPenComponent do
   def render(assigns) do
     ~H"""
     <div>
-      <input class="inventory" type="image" src="/images/Pen.png" id="inv_pen" hidden = "hidden" /> <!-- show big and in inventory -->
+      <input class="inventory" type="image" src="/images/Pen.png" id="inv_pen" hidden = "hidden" onclick="showScreen('zoomPen');"/> <!-- show big and in inventory -->
     </div>
     """
   end
@@ -140,7 +140,7 @@ defmodule Escaperoom.Inventory.GameUndiesComponent do
   def render(assigns) do
     ~H"""
     <div>
-      <input class="buttons furniture undies" type="image" src="/images/Underwear.png" id="undies" onclick="get(id, 'inv_undies');" /> <!-- show in inventory -->
+      <input class="buttons furniture undies" type="image" src="/images/Underwear.png" id="undies" onclick="get(id, 'inv_undies');showScreen('zoomUndies');"/> <!-- show in inventory -->
     </div>
     """
   end
@@ -153,7 +153,7 @@ defmodule Escaperoom.Inventory.InventoryUndiesComponent do
   def render(assigns) do
     ~H"""
     <div>
-      <input class="inventory" type="image" src="/images/Underwear.png" id="inv_undies" hidden = "hidden" /> <!-- show big and in inventory -->
+      <input class="inventory" type="image" src="/images/Underwear.png" id="inv_undies" hidden = "hidden" onclick="showScreen('zoomUndies');"/> <!-- show big and in inventory -->
     </div>
     """
   end
