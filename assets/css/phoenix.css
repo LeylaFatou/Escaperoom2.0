@@ -818,9 +818,9 @@ header nav a {
 }
 
 .furniture.key {
-  top: 22%;
-  right: 25%;
-  width: 3%;
+  top: 68%;
+  right: 62%;
+  width: 6%;
   rotate: 50deg;
 }
 
@@ -941,6 +941,16 @@ header nav a {
   margin-left: 20%;
 }
 
+.numberCode {
+  margin: 0 0.5rem;
+  padding: 0.5rem;
+  border: 1px solid #333;
+  width: 20%;
+  height: 20%;
+  text-align: center;
+  font-size: 3rem;
+}
+
 .window.closet {
   background-image: linear-gradient(#0188a5, #3e3264);
   background-repeat: no-repeat;
@@ -962,7 +972,7 @@ header nav a {
 
 .safeOpen {
   position: absolute;
-  width: 20%;
+  width: 30%;
   bottom: 18%;
   margin-left: 30%;
 }

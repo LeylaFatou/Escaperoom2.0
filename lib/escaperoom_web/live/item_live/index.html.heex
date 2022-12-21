@@ -44,13 +44,12 @@
     <.live_component module={Escaperoom.Inventory.GamePaperComponent} id="paper" />
     <.live_component module={Escaperoom.Inventory.GameLetterComponent} id="letter" />
     <input class="buttons furniture desk" type="image" src="/images/Desk.png" id="desk" onclick="openDesk();" /> <!-- replace with open desk picture at click and add key + pencil inside-->
-    <.live_component module={Escaperoom.Inventory.GameKeyComponent} id="key" />
+
     <.live_component module={Escaperoom.Inventory.GamePenComponent} id="pen" />
     <script>
       function openDesk() {
         var desk = document.getElementById("desk");
         desk.src = "/images/DeskOpen.png";
-        document.getElementById("key").removeAttribute("hidden");
         document.getElementById("pen").removeAttribute("hidden");
       }
     </script>
@@ -87,13 +86,14 @@
       <img class="laptopOpen" src="/images/LaptopScreen.png">
 
 
-      <div>
-      <input type="number" id="code_1" name="code_1" min="0" max="9">
-      <input type="number" id="code_2" name="code_1" min="0" max="9">
-      <input type="number" id="code_3" name="code_1" min="0" max="9">
-      <input type="number" id="code_4" name="code_1" min="0" max="9">
+      <div class = "numberBox">
 
-      <input type="button" id="code_enter" onclick="codecheck()";>
+        <input class = "numberCode" type="number" id="code_1" name="code_1" min="0" max="9">
+        <input class = "numberCode" type="number" id="code_2" name="code_1" min="0" max="9">
+        <input class = "numberCode" type="number" id="code_3" name="code_1" min="0" max="9">
+        <input class = "numberCode" type="number" id="code_4" name="code_1" min="0" max="9">
+
+        <input type="button" id="code_enter" onclick="codecheck()";>
       </div>
 
 
@@ -128,17 +128,20 @@
 <!-- Closet -->
     <input class = "buttons furniture closet" type="image" src="/images/Closet.png" onclick="showScreen('closetScreen');"> <!-- show open closet -->
     <div class="window closet" id="closetScreen">
+
       <span class="close" onclick="closeScreen('closetScreen');"> &times </span>
       <img class="closetOpen" src="/images/ClosetOpen.png">
       <!--<img class="safe" id="closedSafe" src="/images/Safe.png" onclick= "openSafe();" disabled>-->
       <input class ="safe" type="image" id= "closedSafe" src="/images/Safe.png" onclick="openSafe();" disabled >
       <img class="books" src="/images/Books.png">
+      <.live_component module={Escaperoom.Inventory.GameKeyComponent} id="key" />
     </div>
 <!-- Open Safe -->
     <script>
       function openSafe() {
         var safe = document.getElementById("closedSafe");
-        safe.src = "/images/Letter.png";
+        safe.src = "/images/SafeOpen.png";
+        safe.class = "safeOpen";
         document.getElementById("key").removeAttribute("hidden");
       }
     </script>
