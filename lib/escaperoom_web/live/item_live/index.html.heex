@@ -32,7 +32,7 @@
   </div>
 
   <div class = "column column-80 gamebody">
-    <!-- <span><%= live_patch "Key", to: Routes.item_index_path(@socket, :new) %></span> -->
+    <!-- <span><%= live_patch "Key", to: Routes.item_index_path(@socket, :new) %></span>-->
 
     <.live_component module={Escaperoom.Inventory.GameSockComponent} id="paper" />
     <.live_component module={Escaperoom.Inventory.GameUndiesComponent} id="undies" />
@@ -86,47 +86,69 @@
       <span class="close" onclick="closeScreen('laptopScreen');"> &times </span>
       <img class="laptopOpen" src="/images/LaptopScreen.png">
 
-      <!--
+
       <div>
       <input type="number" id="code_1" name="code_1" min="0" max="9">
       <input type="number" id="code_2" name="code_1" min="0" max="9">
       <input type="number" id="code_3" name="code_1" min="0" max="9">
       <input type="number" id="code_4" name="code_1" min="0" max="9">
 
-      <input type="button" id="code_enter" onclick=codecheck()>
+      <input type="button" id="code_enter" onclick="codecheck()";>
       </div>
-      -->
+
 
     </div>
-<!--
+
     <script>
-    function codecheck(){}
-      let input1 = document.getElementById("code_1")
-      let input1 = document.getElementById("code_2")
-      let input1 = document.getElementById("code_3")
-      let input1 = document.getElementById("code_4")
+    function codecheck(){
+      let input1 = document.getElementById("code_1");
+      let input2 = document.getElementById("code_2");
+      let input3 = document.getElementById("code_3");
+      let input4 = document.getElementById("code_4");
 
 
-      let value = input.value
-      let value = input.value
-      let value = input.value
-      let value = input.value
+      let value1 = input1.value;
+      let value2 = input2.value;
+      let value3 = input3.value;
+      let value4 = input4.value;
+
+      if(value1 == 1 && value2 == 6 && value3 == 9 && value4 == 4){
+        enable("closedSafe");
+        <!--display some message that the code is right-->
+        document.getElementById("code_enter").value = "Okay";
+      } else {
+        <!--display some message that the code is wrong-->
+        document.getElementById("code_enter").value = "Nope";
+      }
+
     }
     </script>
--->
+
 
 <!-- Closet -->
     <input class = "buttons furniture closet" type="image" src="/images/Closet.png" onclick="showScreen('closetScreen');"> <!-- show open closet -->
     <div class="window closet" id="closetScreen">
       <span class="close" onclick="closeScreen('closetScreen');"> &times </span>
       <img class="closetOpen" src="/images/ClosetOpen.png">
-      <img class="safe" src="/images/Safe.png">
+      <!--<img class="safe" id="closedSafe" src="/images/Safe.png" onclick= "openSafe();" disabled>-->
+      <input class ="safe" type="image" id= "closedSafe" src="/images/Safe.png" onclick="openSafe();" disabled >
       <img class="books" src="/images/Books.png">
     </div>
+<!-- Open Safe -->
+    <script>
+      function openSafe() {
+        var safe = document.getElementById("closedSafe");
+        safe.src = "/images/Letter.png";
+        document.getElementById("key").removeAttribute("hidden");
+      }
+    </script>
+
 <!-- Victory screen -->
     <div class="window victory" id="vicscreen">
       <p>Wooooo Victory</p>
     </div>
+
+
 <!-- Zoom Objects -->
     <div class="window" id="zoomKey">
       <span class="close" onclick="closeScreen('zoomKey');"> &times </span>

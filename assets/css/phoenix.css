@@ -960,6 +960,14 @@ header nav a {
   margin-left: 30%;
 }
 
+.safeOpen {
+  position: absolute;
+  width: 20%;
+  bottom: 18%;
+  margin-left: 30%;
+}
+
+
 .books {
   position: absolute;
   width: 20%;
