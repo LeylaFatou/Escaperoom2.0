@@ -1,8 +1,13 @@
 # Escaperoom
+Instalatlations:
+  * Install Elixir 1.12 or later: 
+  * Install postgreSQL database: https://wiki.postgresql.org/wiki/Detailed_installation_guides
+  
 
 To start the Escaperoom:
 
-  * Clone master branch into local repository
+  * Open gitbash on the folder you want to clone the project in
+  * Clone master branch into that folder
   * Install postgreSQL database: https://wiki.postgresql.org/wiki/Detailed_installation_guides
   * Configure your database in config/dev.exs
   * The password should be the same as the one chosen when installing postgreSQL
