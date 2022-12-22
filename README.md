@@ -1,5 +1,5 @@
 # Escaperoom
-Instalatlations:
+Installations (if not already done):
   * Install Elixir 1.12 or later: https://elixir-lang.org/install.html
   * Install Erlang 22 or later: https://elixir-lang.org/install.html#installing-erlang
   * Install Phoenix running the command:``` mix archive.install hex phx_new```
