@@ -44,7 +44,15 @@
     <.live_component module={Escaperoom.Inventory.GamePaperComponent} id="paper" />
     <.live_component module={Escaperoom.Inventory.GameLetterComponent} id="letter" />
     <input class="buttons furniture desk" type="image" src="/images/Desk.png" id="desk" onclick="openDesk();" /> <!-- replace with open desk picture at click and add key + pencil inside-->
+    <!--
     <.live_component module={Escaperoom.Inventory.GameKeyComponent} id="key" />
+
+    onclick="get(id, 'inv_key'); showScreen('zoomKey');"
+    -->
+    <div class="buttons furniture key" type="image" src="/images/Key.png" id= "key">
+      <%= component("key", true, phx_click: "find") %>
+    </div>
+
     <.live_component module={Escaperoom.Inventory.GamePenComponent} id="pen" />
     <script>
       function openDesk() {

@@ -2,7 +2,7 @@ import Config
 
 # Configure your database
 config :escaperoom, Escaperoom.Repo,
-  username: "postgres",
+  username: "leyla",
   password: "1234",
   hostname: "localhost",
   database: "escaperoom_dev",
