@@ -2,15 +2,15 @@
 Instalatlations:
   * Install Elixir 1.12 or later: https://elixir-lang.org/install.html
   * Install Erlang 22 or later: https://elixir-lang.org/install.html#installing-erlang
-  * Install Phoenix running the command: mix archive.install hex phx_new
+  * Install Phoenix running the command:``` mix archive.install hex phx_new```
   * Install postgreSQL database: https://wiki.postgresql.org/wiki/Detailed_installation_guides
   
 
 To start the Escaperoom:
 
   * Configure your database in config/dev.exs
-  * The password should be the same as the one chosen when installing postgreSQL
-  * The database should be the same name as the one chosen when installing postgreSQL
+    * The password should be the same as the one chosen when installing postgreSQL
+    * The database should be the same name as the one chosen when installing postgreSQL
   
   * Open gitbash on the folder you want to clone the project in
   * Clone master branch into that folder
