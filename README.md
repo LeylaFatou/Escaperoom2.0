@@ -1,12 +1,12 @@
 # Escaperoom
-Installations (if not already done):
+## Installations (if not already done):
   * Install Elixir 1.12 or later: https://elixir-lang.org/install.html
   * Install Erlang 22 or later: https://elixir-lang.org/install.html#installing-erlang
-  * Install Phoenix running the command:``` mix archive.install hex phx_new```
+  * Install Phoenix by running the command:``` mix archive.install hex phx_new```
   * Install postgreSQL database: https://wiki.postgresql.org/wiki/Detailed_installation_guides
   
 
-To start the Escaperoom:
+## To start the Escaperoom:
 
   * Configure your database in config/dev.exs
     * The password should be the same as the one chosen when installing postgreSQL
