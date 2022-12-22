@@ -1,6 +1,30 @@
 
 <section class = "row" onclick="closeOther();">
 
+<!-- Victory screen -->
+    <div class="window victory" id="vicscreen">
+      <div class="defeat">
+        <svg>
+          <symbol id="s-text">
+            <text text-anchor="middle" x="50%" y="40%">YOU</text>
+            <text text-anchor="middle" x="51%" y="40%">YOU</text>
+
+            <text text-anchor="middle" x="50%" y="70%">DEFEATED.</text>
+            <text text-anchor="middle" x="51%" y="70%">DEFEATED.</text>
+
+          </symbol>
+
+          <g class = "g-ants">
+            <use xlink:href="#s-text" class="text-copy"></use>
+            <use xlink:href="#s-text" class="text-copy"></use>
+            <use xlink:href="#s-text" class="text-copy"></use>
+            <use xlink:href="#s-text" class="text-copy"></use>
+            <use xlink:href="#s-text" class="text-copy"></use>
+          </g>
+        </svg>
+      </div>
+    </div>
+
   <div class = "column column-20">
 
     <h3>Inventory</h3>
@@ -84,16 +108,14 @@
     <div class="window laptop" id="laptopScreen">
       <span class="close" onclick="closeScreen('laptopScreen');"> &times </span>
       <img class="laptopOpen" src="/images/LaptopScreen.png">
-
-
       <div class = "numberBox">
-
-        <input class = "numberCode" type="number" id="code_1" name="code_1" min="0" max="9">
-        <input class = "numberCode" type="number" id="code_2" name="code_1" min="0" max="9">
-        <input class = "numberCode" type="number" id="code_3" name="code_1" min="0" max="9">
-        <input class = "numberCode" type="number" id="code_4" name="code_1" min="0" max="9">
-
-        <input type="button" id="code_enter" onclick="codecheck()";>
+        <div class = "numberEntries">
+          <input class = "numberCode" type="number" id="code_1" name="code_1" min="0" max="9">
+          <input class = "numberCode" type="number" id="code_2" name="code_1" min="0" max="9">
+          <input class = "numberCode" type="number" id="code_3" name="code_1" min="0" max="9">
+          <input class = "numberCode" type="number" id="code_4" name="code_1" min="0" max="9">
+        </div>
+        <input class = "submit" type="button" id="code_enter" onclick="codecheck()" value = "You sure?";>
       </div>
 
 
@@ -115,10 +137,10 @@
       if(value1 == 1 && value2 == 6 && value3 == 9 && value4 == 4){
         enable("closedSafe");
         <!--display some message that the code is right-->
-        document.getElementById("code_enter").value = "Okay";
+        document.getElementById("code_enter").value = "You got it, mate";
       } else {
         <!--display some message that the code is wrong-->
-        document.getElementById("code_enter").value = "Nope";
+        document.getElementById("code_enter").value = "Nah, bruh";
       }
 
     }
@@ -131,9 +153,10 @@
 
       <span class="close" onclick="closeScreen('closetScreen');"> &times </span>
       <img class="closetOpen" src="/images/ClosetOpen.png">
-      <!--<img class="safe" id="closedSafe" src="/images/Safe.png" onclick= "openSafe();" disabled>-->
-      <input class ="safe" type="image" id= "closedSafe" src="/images/Safe.png" onclick="openSafe();" disabled >
-      <img class="books" src="/images/Books.png">
+      <!-- <img class="safe" id="closedSafe" src="/images/Safe.png" onclick= "openSafe();" disabled> -->
+      <img class="furniture books" src="/images/Books.png">
+      <input class ="buttons furniture safe" type="image" id= "closedSafe" src="/images/Safe.png" onclick="openSafe();" disabled >
+
       <.live_component module={Escaperoom.Inventory.GameKeyComponent} id="key" />
     </div>
 <!-- Open Safe -->
@@ -141,20 +164,16 @@
       function openSafe() {
         var safe = document.getElementById("closedSafe");
         safe.src = "/images/SafeOpen.png";
-        safe.class = "safeOpen";
+        safe.setAttribute('class', 'furniture safeOpen');
+        safe.class = "furniture safeOpen";
         document.getElementById("key").removeAttribute("hidden");
       }
     </script>
 
-<!-- Victory screen -->
-    <div class="window victory" id="vicscreen">
-      <p>Wooooo Victory</p>
-    </div>
-
 
 <!-- Zoom Objects -->
     <div class="window" id="zoomKey">
-      <span class="close" onclick="closeScreen('zoomKey');"> &times </span>
+      <span class="close" onclick="closeScreen('zoomKey'); closeScreen('closetScreen');"> &times </span>
       <img class="zoom" src="/images/Key.png">
     </div>
 
