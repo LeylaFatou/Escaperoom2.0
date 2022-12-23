@@ -1,6 +1,6 @@
 # Escaperoom
 ## Installations (if not already done):
-  * Install Elixir 1.12 or later: [https://elixir-lang.org/install.html](Installation Page)
+  * Install Elixir 1.12 or later: [Installation Page](https://elixir-lang.org/install.html)
   * Install Erlang 22 or later: [https://elixir-lang.org/install.html#installing-erlang](Installation Page)
   * Install postgreSQL database: [https://wiki.postgresql.org/wiki/Detailed_installation_guides](Installation guide)
   
