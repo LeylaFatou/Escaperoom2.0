@@ -13,7 +13,7 @@
   
   * Open gitbash on the folder you want to clone the project in
   * Clone master branch into that folder
-  * Move into the project root by typing cd EscapeRoom2.0
+  * Move into the project root by typing ```cd EscapeRoom2.0```
   * Start Phoenix endpoint with `mix phx.server` or inside IEx with `iex -S mix phx.server`
 
 Now you can visit [`localhost:4000/items`](http://localhost:4000/items) from your browser.
