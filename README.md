@@ -1,8 +1,8 @@
 # Escaperoom
 ## Installations (if not already done):
   * Install Elixir 1.12 or later: [Installation Page](https://elixir-lang.org/install.html)
-  * Install Erlang 22 or later: [https://elixir-lang.org/install.html#installing-erlang](Installation Page)
-  * Install postgreSQL database: [https://wiki.postgresql.org/wiki/Detailed_installation_guides](Installation guide)
+  * Install Erlang 22 or later: [Installation Page](https://elixir-lang.org/install.html#installing-erlang)
+  * Install postgreSQL database: [Installation guide](https://wiki.postgresql.org/wiki/Detailed_installation_guides)
   
 The database is handeld by [pgAdmin](https://www.pgadmin.org/). Create a database with the name escaperoom\_dev. It will have a default user that has all the access to the database.
 
