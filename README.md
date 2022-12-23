@@ -2,7 +2,6 @@
 ## Installations (if not already done):
   * Install Elixir 1.12 or later: https://elixir-lang.org/install.html
   * Install Erlang 22 or later: https://elixir-lang.org/install.html#installing-erlang
-  * Install Phoenix by running the command:``` mix archive.install hex phx_new```
   * Install postgreSQL database: https://wiki.postgresql.org/wiki/Detailed_installation_guides
   
 
