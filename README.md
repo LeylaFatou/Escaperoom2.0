@@ -1,15 +1,20 @@
 # Escaperoom
 ## Installations (if not already done):
-  * Install Elixir 1.12 or later: https://elixir-lang.org/install.html
-  * Install Erlang 22 or later: https://elixir-lang.org/install.html#installing-erlang
-  * Install postgreSQL database: https://wiki.postgresql.org/wiki/Detailed_installation_guides
+  * Install Elixir 1.12 or later: [https://elixir-lang.org/install.html](Installation Page)
+  * Install Erlang 22 or later: [https://elixir-lang.org/install.html#installing-erlang](Installation Page)
+  * Install postgreSQL database: [https://wiki.postgresql.org/wiki/Detailed_installation_guides](Installation guide)
   
+The database is handeld by [pgAdmin](https://www.pgadmin.org/). Create a database with the name escaperoom\_dev. It will have a default user that has all the access to the database.
+
+Default user:
+* username: postgres
+* Something you chose when installing postgreSQL
 
 ## To start the Escaperoom:
 
   * Configure your database in config/dev.exs
-    * The password should be the same as the one chosen when installing postgreSQL
-    * The database should be the same name as the one chosen when installing postgreSQL
+    * username: postgres
+    * password: Something you chose when installing postgreSQL
   
   * Open gitbash on the folder you want to clone the project in
   * Clone master branch into that folder
